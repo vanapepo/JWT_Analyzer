@@ -1,0 +1,17 @@
+id: jwt-misconfiguration
+info:
+  author: jwt-analyzer
+  description: Detected JWT with security issues
+  name: JWT Security Misconfiguration
+  severity: high
+requests:
+- headers:
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjQ5NTMwMjEsImlhdCI6MTc2NDkzNTAyMSwic3ViIjoicmV5YSJ9.lZ8XBhJjc2m6DFjL_MIxNRHiViaJ1bibyfcWFolOeyk
+  matchers:
+  - type: word
+    words:
+    - success
+    - authenticated
+  method: GET
+  path:
+  - '{{BaseURL}}'
